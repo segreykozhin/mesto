@@ -9,7 +9,7 @@
   background-position: center;
   cursor: pointer;
   align-self: center;
-  justify-self: end
+  justify-self: end;
 }
 
 @media screen and (max-width: 768px) {
