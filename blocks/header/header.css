@@ -1,6 +1,8 @@
 .header {
   max-width: 880px;
   margin: 45px auto 0 auto;
+  padding-bottom: 41px;
+  border-bottom: 1px solid white;
 }
 
 @media screen and (max-width: 768px) {

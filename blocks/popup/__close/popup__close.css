@@ -1,7 +1,18 @@
 .popup__close {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  background-image: url(../../../images/CloseIcon.svg);
+  backface-visibility: visible;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
   right: -40px;
   top: -40px;
+  cursor: pointer;
 }
 
 @media screen and (max-width:768px) {
