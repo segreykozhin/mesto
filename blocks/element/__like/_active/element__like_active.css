@@ -1,14 +1,3 @@
 .element__like_active {
   background-image: url(../../../../images/Union.svg);
-  border: none;
-  cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 22px;
-  height: 19px;
-  background-color: white;
-}
-
-.element__like_active:hover {
-  opacity:  0.8;
 }

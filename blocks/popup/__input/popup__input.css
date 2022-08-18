@@ -14,3 +14,9 @@
 .popup__input:first-of-type {
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 320px) {
+  .popup__input {
+    width: 238px;
+  }
+}

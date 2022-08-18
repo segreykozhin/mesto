@@ -4,11 +4,11 @@
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
-  width: 22px;
+  width: 28px;
   height: 19px;
   background-color: white;
 }
 
 .element__like:hover {
-  opacity:  0.8;
+  opacity: 0.5;
 }

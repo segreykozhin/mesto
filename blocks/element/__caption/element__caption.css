@@ -4,3 +4,8 @@
   width: 246px;
   justify-content: space-between;
 }
+@media screen and (max-width: 768px) {
+  .element__caption:last-of-type {
+    margin-bottom: 0px;
+  }
+}

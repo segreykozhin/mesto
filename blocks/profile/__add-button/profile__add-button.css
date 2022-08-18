@@ -2,14 +2,16 @@
   background-image: url(../../../images/addBut.svg);
   background-color: black;
   width: 22px;
-  height: 22px;
-  border: 1px solid white;
-  padding: 25px 75px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: 20px 75px 25px 72px;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
   align-self: center;
   justify-self: end;
+  margin-bottom: 14px;
 }
 
 @media screen and (max-width: 768px) {
@@ -21,5 +23,5 @@
 }
 
 .profile__add-button:hover {
-  opacity:  0.8;
+  opacity: 0.6;
 }

@@ -6,7 +6,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px 17px;
   grid-template-rows: auto;
-  margin-top: 58px;
+  margin-top: 48px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -20,8 +20,6 @@
 @media screen and (max-width: 768px) {
   .elements__items {
     grid-template-columns: 1fr;
-    justify-content: center;
-    justify-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
