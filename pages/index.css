@@ -37,3 +37,8 @@
 @import url(../blocks/popup-full-img/__close/popup-full-img__close.css);
 @import url(../blocks/popup-full-img/__img/popup-full-img__img.css);
 @import url(../blocks/popup-full-img/__container/popup-full-img__container.css);
+@import url(../blocks/popup-new-place/__container/popup-new-place__container.css);
+@import url(../blocks/popup-new-place/__title/popup-new-place__title.css);
+@import url(../blocks/popup-new-place/__form/popup-new-place__form.css);
+@import url(../blocks/popup-new-place/__input/popup-new-place__input.css);
+@import url(../blocks/popup-new-place/__button/popup-new-place__button.css);
