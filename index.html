@@ -35,31 +35,31 @@
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup profile-popup">
     <div class="popup__container">
       <button type="button" class="popup__close"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="personal_data" class="popup__form">
-        <input type="text" name="name" placeholder="Жак-Ив Кусто" class="popup__input popup__input_data_name">
-        <input type="text" name="work" placeholder="Исследователь океана" class="popup__input popup__input_data_work">
+        <input type="text" name="name" placeholder="Имя" class="popup__input popup__input_data_name">
+        <input type="text" name="work" placeholder="О себе" class="popup__input popup__input_data_work">
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
     </div>
   </div>
 
-  <div class="popup-new-place">
+  <div class="popup popup-new-place">
     <div class="popup-new-place__container">
       <button type="button" class="popup-new-place__close"></button>
       <h2 class="popup-new-place__title">Новое место</h2>
       <form name="place_data" class="popup-new-place__form">
         <input type="text" name="name" placeholder="Название" class="popup-new-place__input popup-new-place__input_data_place">
-        <input type="text" name="work" placeholder="Ссылка на картинку" class="popup-new-place__input popup-new-place__input_data_link">
+        <input type="url" name="link" placeholder="Ссылка на картинку" class="popup-new-place__input popup-new-place__input_data_link">
         <button type="submit" class="popup-new-place__button">Сохранить</button>
       </form>
     </div>
   </div>
 
-  <div class="popup-full-img">
+  <div class="popup popup-full-img">
     <div class="popup-full-img__container">
       <img src="." alt="" class="popup-full-img__img">
       <button type="button" class="popup-full-img__close"></button>
@@ -78,6 +78,7 @@
     </div>
   </template>
 
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
