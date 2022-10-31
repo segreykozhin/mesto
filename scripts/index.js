@@ -19,6 +19,8 @@ const popupFullImg = document.querySelector('.popup-full-img');
 const fullImg = document.querySelector('.popup-full-img__img');
 const fullImgCapt = document.querySelector('.popup-full-img__caption');
 
+alert('Здравствуйте, инпуты поправил еще в прошлой итерации вроде, у меня почему то нормально открывается. Попросил проверить наставника и у него тоже нет такой проблемы');
+
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
 }
