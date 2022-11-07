@@ -11,10 +11,6 @@
   width: 358px;
 }
 
-.popup-new-place__input:first-of-type {
-  margin-bottom: 30px;
-}
-
 @media screen and (max-width: 500px) {
   .popup-new-place__input {
     width: 238px;

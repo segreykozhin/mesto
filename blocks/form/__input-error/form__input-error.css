@@ -1,7 +1,6 @@
 .form__input-error {
   position: absolute;
-  display: block;
-  top: calc(100% + 0.6px);
+  top: calc(100% + 0.5px);
   color: #FF0000;
   font-size: 12px;
   font-weight: 400;

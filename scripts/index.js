@@ -18,6 +18,7 @@ const imgCloseButton = document.querySelector('.popup-full-img__close');
 const popupFullImg = document.querySelector('.popup-full-img');
 const fullImg = document.querySelector('.popup-full-img__img');
 const fullImgCapt = document.querySelector('.popup-full-img__caption');
+const main = document.querySelector('.root');
 
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
@@ -107,8 +108,13 @@ addButton.addEventListener('click', addPlace);
 placeCloseButton.addEventListener('click', closeAddPlace);
 newPlaceForm.addEventListener('submit', saveCard);
 imgCloseButton.addEventListener('click', closeFullImg);
-
-
+main.addEventListener('keydown', function(evt) {
+  if(evt.key ==='Escape') {
+    closeFullImg();
+    closeAddPlace();
+    closeProfilePopup();
+  }
+});
 
 
 
