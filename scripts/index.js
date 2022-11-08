@@ -19,7 +19,9 @@ const popupFullImg = document.querySelector('.popup-full-img');
 const fullImg = document.querySelector('.popup-full-img__img');
 const fullImgCapt = document.querySelector('.popup-full-img__caption');
 const main = document.querySelector('.root');
-const overlay = document.querySelectorAll('.overlay');
+const popups = document.querySelectorAll('.popup');
+
+alert('Извините, пожалуйста, за мою невнимательность');
 
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
@@ -108,14 +110,18 @@ const closeAllPopups = function() {
   closeProfilePopup();
 }
 
-overlay.forEach(function(item) {
-  item.addEventListener('click',closeAllPopups);
-});
-
 main.addEventListener('keydown', function(evt) {
   if(evt.key ==='Escape') {
     closeAllPopups();
   }
+});
+
+popups.forEach(function(item) {
+  item.addEventListener("click",function(evt) {
+    if (evt.target.classList.contains("popup")) {
+      closePopup(item)
+    }
+  });
 });
 
 profilePopupForm.addEventListener('submit',handleFormSubmit);
