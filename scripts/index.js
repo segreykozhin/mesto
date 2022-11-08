@@ -18,10 +18,7 @@ const imgCloseButton = document.querySelector('.popup-full-img__close');
 const popupFullImg = document.querySelector('.popup-full-img');
 const fullImg = document.querySelector('.popup-full-img__img');
 const fullImgCapt = document.querySelector('.popup-full-img__caption');
-const main = document.querySelector('.root');
 const popups = document.querySelectorAll('.popup');
-
-alert('Извините, пожалуйста, за мою невнимательность');
 
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
@@ -104,19 +101,14 @@ const closeProfilePopup = function() {
   closePopup(profilePopup);
 }
 
-const closeAllPopups = function() {
-  closeFullImg();
-  closeAddPlace();
-  closeProfilePopup();
-}
-
-main.addEventListener('keydown', function(evt) {
-  if(evt.key ==='Escape') {
-    closeAllPopups();
-  }
-});
-
 popups.forEach(function(item) {
+  const main = document.querySelector('.root');
+  main.addEventListener('keydown', function(evt) {
+    if(evt.key ==='Escape') {
+      closePopup(item)
+    }
+  });
+
   item.addEventListener("click",function(evt) {
     if (evt.target.classList.contains("popup")) {
       closePopup(item)
