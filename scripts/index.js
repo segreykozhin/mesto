@@ -22,14 +22,14 @@ const popups = document.querySelectorAll('.popup');
 const buttonSavePlace = document.querySelector('.popup-new-place__button');
 const main = document.querySelector('.root');
 
-alert('ебать шок, ты все-таки открыла, куколдочка моя нежная')
-
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
+  main.addEventListener('keydown', closeByEscape);
 }
 
 const closePopup = function(popup) {
   popup.classList.remove('popup_opened');
+  main.removeEventListener('keydown', closeByEscape);
 }
 
 function addCard(name, link) {
@@ -121,7 +121,6 @@ popups.forEach(function(item) {
   });
 });
 
-main.addEventListener('keydown', closeByEscape);
 profilePopupForm.addEventListener('submit',handleFormSubmit);
 profileEditButton.addEventListener('click', editProfile);
 profileCloseButton.addEventListener('click', closeProfilePopup);

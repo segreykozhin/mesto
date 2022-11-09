@@ -41,21 +41,27 @@ const hasInvalidInput=(inputList) =>{
 const toggleButton=(inputList,buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add('form__button_off');
+    buttonElement.setAttribute('disabled', 'disabled');
   } else {
     buttonElement.classList.remove('form__button_off');
+    buttonElement.removeAttribute('disabled', 'disabled');
   };
 }
 
-const handleValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.form'));
+const handleValidation = ({formSelector,fieldsetSelector}) => {
+  const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    const fieldsetList = Array.from(formElement.querySelectorAll('.form__fieldset'));
+    const fieldsetList = Array.from(formElement.querySelectorAll(fieldsetSelector));
     fieldsetList.forEach((fieldset) => {
       setEventListeners(fieldset);
     });
   });
 };
-handleValidation();
+
+handleValidation({
+  formSelector: '.form',
+  fieldsetSelector: '.form__fieldset'
+});
