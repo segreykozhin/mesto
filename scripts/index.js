@@ -9,7 +9,7 @@ const profileCaption = document.querySelector('.profile__caption');
 const placesList = document.querySelector('.elements__items');
 const placesTemplate = document.querySelector('.element-template').content;
 const popupNewPlace = document.querySelector('.popup-new-place');
-const addButton = document.querySelector('.profile__add-button');
+const cardsButton = document.querySelector('.profile__add-button');
 const placeCloseButton = document.querySelector('.popup-new-place__close');
 const placeInput = document.querySelector('.popup-new-place__input_data_place');
 const linkInput = document.querySelector('.popup-new-place__input_data_link');
@@ -19,6 +19,10 @@ const popupFullImg = document.querySelector('.popup-full-img');
 const fullImg = document.querySelector('.popup-full-img__img');
 const fullImgCapt = document.querySelector('.popup-full-img__caption');
 const popups = document.querySelectorAll('.popup');
+const buttonSavePlace = document.querySelector('.popup-new-place__button');
+const main = document.querySelector('.root');
+
+alert('ебать шок, ты все-таки открыла, куколдочка моя нежная')
 
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
@@ -91,6 +95,7 @@ const saveCard = function(evt) {
   placeInput.value = "";
   linkInput.value = "";
   closeAddPlace();
+  buttonSavePlace.classList.add('form__button_off');
 }
 
 const closeFullImg = function() {
@@ -101,25 +106,26 @@ const closeProfilePopup = function() {
   closePopup(profilePopup);
 }
 
-popups.forEach(function(item) {
-  const main = document.querySelector('.root');
-  main.addEventListener('keydown', function(evt) {
-    if(evt.key ==='Escape') {
-      closePopup(item)
-    }
-  });
+function closeByEscape (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
 
+popups.forEach(function(item) {
   item.addEventListener("click",function(evt) {
     if (evt.target.classList.contains("popup")) {
-      closePopup(item)
+      closePopup(item);
     }
   });
 });
 
+main.addEventListener('keydown', closeByEscape);
 profilePopupForm.addEventListener('submit',handleFormSubmit);
 profileEditButton.addEventListener('click', editProfile);
 profileCloseButton.addEventListener('click', closeProfilePopup);
-addButton.addEventListener('click', addPlace);
+cardsButton.addEventListener('click', addPlace);
 placeCloseButton.addEventListener('click', closeAddPlace);
 newPlaceForm.addEventListener('submit', saveCard);
 imgCloseButton.addEventListener('click', closeFullImg);
