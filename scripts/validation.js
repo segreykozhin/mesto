@@ -1,14 +1,14 @@
-const showErrors = (formElement,inputElement, errorMessage) => {
+const showErrors = (formElement,inputElement, errorMessage, inputErrorClass, inputErrorActiveClass) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
+  inputElement.classList.add(inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error_active');
+  errorElement.classList.add(inputErrorActiveClass);
 };
 
-const hideErrors = (formElement,inputElement) => {
+const hideErrors = (formElement,inputElement,inputErrorClass, inputErrorActiveClass) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('form__input-error_active');
+  inputElement.classList.remove(inputErrorClass);
+  errorElement.classList.remove(inputErrorActiveClass);
   errorElement.textContent = '';
 };
 
@@ -20,14 +20,14 @@ const checkValidity = (formElement, inputElement) => {
   }
 };
 
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-  const buttonElement = formElement.querySelector('.form__button');
-  toggleButton(inputList, buttonElement);
+const setEventListeners = (formElement,inputSelector,submitButtonSelector,inactiveButtonClass) => {
+  const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+  const buttonElement = formElement.querySelector(submitButtonSelector);
+  toggleButton(inputList, buttonElement,inactiveButtonClass);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkValidity(formElement, inputElement);
-       toggleButton(inputList, buttonElement);
+       toggleButton(inputList, buttonElement,inactiveButtonClass);
     });
   });
 };
@@ -38,17 +38,25 @@ const hasInvalidInput=(inputList) =>{
   });
 }
 
-const toggleButton=(inputList,buttonElement) => {
+const toggleButton=(inputList,buttonElement,inactiveButtonClass) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('form__button_off');
-    buttonElement.setAttribute('disabled', 'disabled');
+    turnButtonOff(buttonElement,inactiveButtonClass);
   } else {
-    buttonElement.classList.remove('form__button_off');
-    buttonElement.removeAttribute('disabled', 'disabled');
+    turnButtonOn(buttonElement,inactiveButtonClass);
   };
 }
 
-const handleValidation = ({formSelector,fieldsetSelector}) => {
+const turnButtonOn = (item,inactiveButtonClass) => {
+  item.classList.remove(inactiveButtonClass);
+  item.removeAttribute('disabled', 'true');
+}
+
+const turnButtonOff = (item,inactiveButtonClass) => {
+  item.classList.add(inactiveButtonClass);
+  item.setAttribute('disabled','false');
+}
+
+const handleValidation = ({formSelector,fieldsetSelector,inactiveButtonClass,inputSelector,submitButtonSelector,inputErrorClass,inputErrorActiveClass}) => {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
@@ -56,12 +64,20 @@ const handleValidation = ({formSelector,fieldsetSelector}) => {
     });
     const fieldsetList = Array.from(formElement.querySelectorAll(fieldsetSelector));
     fieldsetList.forEach((fieldset) => {
-      setEventListeners(fieldset);
+      setEventListeners(fieldset,inputSelector,submitButtonSelector,inactiveButtonClass);
     });
   });
 };
-
-handleValidation({
+const validationOptions = {
   formSelector: '.form',
-  fieldsetSelector: '.form__fieldset'
-});
+  fieldsetSelector: '.form__fieldset',
+  inactiveButtonClass:'form__button_off',
+  inputSelector:'.form__input',
+  submitButtonSelector: '.form__button',
+  inputErrorClass: 'form__input_type_error',
+  inputErrorActiveClass: 'form__input-error_active',
+}
+
+handleValidation(validationOptions);
+
+

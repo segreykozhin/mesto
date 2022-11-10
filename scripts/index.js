@@ -95,7 +95,7 @@ const saveCard = function(evt) {
   placeInput.value = "";
   linkInput.value = "";
   closeAddPlace();
-  buttonSavePlace.classList.add('form__button_off');
+  turnButtonOff(buttonSavePlace, validationOptions.inactiveButtonClass);
 }
 
 const closeFullImg = function() {
