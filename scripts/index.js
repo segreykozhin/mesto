@@ -1,3 +1,6 @@
+import { Card } from "./card.js";
+import { initialCards } from "./cards.js";
+
 const profilePopup = document.querySelector('.profile-popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileCloseButton = profilePopup.querySelector('.popup__close');
@@ -32,40 +35,52 @@ const closePopup = function(popup) {
   main.removeEventListener('keydown', closeByEscape);
 }
 
-function addCard(name, link) {
+function addCard(item) {
 
-  const placeItem = placesTemplate.cloneNode(true);
-  const likeButton = placeItem.querySelector('.element__like');
-  const deleteButton = placeItem.querySelector('.element__delete-button');
+  const card = new Card(item.name, item.link, '.element-template_type_default');
+  const cardElement = card.generateCard();
 
-  const placePic = placeItem.querySelector('.element__img');
-  placePic.src = link;
-  placePic.alt = name;
-  const placeTitle = placeItem.querySelector('.element__title');
-  placeTitle.textContent = name;
+  return cardElement;
 
-  const openImg = function () {
-    fullImg.src = link;
-    fullImgCapt.textContent = name;
-    fullImg.alt = name;
+  // const placeItem = placesTemplate.cloneNode(true);
+  // const likeButton = placeItem.querySelector('.element__like');
+  // const deleteButton = placeItem.querySelector('.element__delete-button');
 
-    openPopup(popupFullImg);
-  }
+  // const placePic = placeItem.querySelector('.element__img');
+  // placePic.src = link;
+  // placePic.alt = name;
+  // const placeTitle = placeItem.querySelector('.element__title');
+  // placeTitle.textContent = name;
 
-  placePic.addEventListener('click', openImg);
+  // const openImg = function () {
+  //   fullImg.src = link;
+  //   fullImgCapt.textContent = name;
+  //   fullImg.alt = name;
 
-  deleteButton.addEventListener('click', function () {
-    deleteButton.closest('.element').remove();
-  });
+  //   openPopup(popupFullImg);
+  // }
 
-  likeButton.addEventListener('click', function(e) {
-    e.target.classList.toggle('element__like_active');
-  });
-  return placeItem;
+  // placePic.addEventListener('click', openImg);
+
+  // deleteButton.addEventListener('click', function () {
+  //   deleteButton.closest('.element').remove();
+  // });
+
+  // likeButton.addEventListener('click', function(e) {
+  //   e.target.classList.toggle('element__like_active');
+  // });
+  // return placeItem;
 }
 
+// initialCards.forEach((item) => {
+//   placesList.append(addCard(item.name, item.link));
+// });
+
 initialCards.forEach((item) => {
-  placesList.append(addCard(item.name, item.link));
+  // const card = new Card(item.name, item.link, '.element-template_type_default');
+  // const cardElement = card.generateCard();
+
+  placesList.append(addCard(item));
 });
 
 function handleFormSubmit(evt) {
