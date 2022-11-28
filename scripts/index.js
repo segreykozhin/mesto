@@ -114,10 +114,6 @@ const saveCard = function(evt) {
   turnButtonOff(buttonSavePlace, validationOptions.inactiveButtonClass);
 }
 
-const closeFullImg = function() {
-  closePopup(popupFullImg);
-}
-
 const closeProfilePopup = function() {
   closePopup(profilePopup);
 }
@@ -143,7 +139,6 @@ profileCloseButton.addEventListener('click', closeProfilePopup);
 cardsButton.addEventListener('click', addPlace);
 placeCloseButton.addEventListener('click', closeAddPlace);
 newPlaceForm.addEventListener('submit', saveCard);
-imgCloseButton.addEventListener('click', closeFullImg);
 
 
 
