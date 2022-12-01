@@ -1,5 +1,5 @@
  export class FormValidator {
-  constructor(config, form) {
+  constructor(config, form, formElement, inputElement, errorMessage, errorElement, inputList, buttonElement) {
     this._form = form;
     this._config = config;
     this._formElement = formElement;
@@ -75,8 +75,8 @@
         evt.preventDefault();
       });
       this._fieldsetList = Array.from(formElement.querySelectorAll(this._config.fieldsetSelector));
-      fieldsetList.forEach((fieldset) => {
-        setEventListeners(fieldset,config);
+      this._fieldsetList.forEach((fieldset) => {
+        this._setEventListeners(fieldset,this._config);
       });
     });
   };
