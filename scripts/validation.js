@@ -1,8 +1,8 @@
  export class FormValidator {
-  constructor(config, form, formElement, inputElement, errorMessage, errorElement, inputList, buttonElement) {
-    this._form = form;
+  constructor(config, form) {
+    // this._form = form;
     this._config = config;
-    this._formElement = formElement;
+    this._formElement = form;
     this._inputElement = inputElement;
     this._errorMessage = errorMessage;
     this._errorElement = errorElement;
