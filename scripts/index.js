@@ -1,6 +1,6 @@
 import { Card } from "./card.js";
 import { initialCards } from "./cards.js";
-// import {FormValidator, validationOptions } from "./validation.js"
+import {FormValidator, validationOptions } from "./validation.js"
 
 const profilePopup = document.querySelector('.profile-popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -132,6 +132,11 @@ popups.forEach(function(item) {
     }
   });
 });
+
+const valProfileForm = new FormValidator(validationOptions, profilePopupForm);
+valProfileForm.enableValidation();
+const valCardForm = new FormValidator(validationOptions, newPlaceForm);
+valCardForm.enableValidation();
 
 profilePopupForm.addEventListener('submit',handleFormSubmit);
 profileEditButton.addEventListener('click', editProfile);
