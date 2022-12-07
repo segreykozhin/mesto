@@ -9,14 +9,14 @@
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
   }
 
-  _showErrors = () => {
+  _showErrors () {
     this._errorElement = this._formElement.querySelector(`.${this._inputElement.id}-error`);
     this._inputElement.classList.add(this._config.inputErrorClass);
-    this._errorElement.textContent = this._errorMessage;
+    this._errorElement.textContent = this._inputElement.validationMessage;
     this._errorElement.classList.add(this._config.inputErrorActiveClass);
   };
 
-  _hideErrors = () => {
+  _hideErrors () {
     this._errorElement = this._formElement.querySelector(`.${this._inputElement.id}-error`);
     this._inputElement.classList.remove(this._config.inputErrorClass);
     this._errorElement.classList.remove(this._config.inputErrorActiveClass);
@@ -31,7 +31,7 @@
     }
   };
 
-  _setEventListeners = () => {
+  _setEventListeners  () {
     // this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
     this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
     this._toggleButton(this._inputList, this._buttonElement,this._config);
@@ -43,13 +43,13 @@
     });
   };
 
-  _hasInvalidInput = () => {
+  _hasInvalidInput () {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
-  _toggleButton = () => {
+  _toggleButton () {
     if (this._hasInvalidInput(this._inputList)) {
       this._turnButtonOff(this._buttonElement,this._config);
     } else {
@@ -57,12 +57,12 @@
     };
   }
 
-  _turnButtonOn = (item) => {
+  _turnButtonOn (item) {
     item.classList.remove(this._config.inactiveButtonClass);
     item.removeAttribute('disabled', 'true');
   }
 
-  _turnButtonOff = (item) => {
+  _turnButtonOff (item) {
     item.classList.add(this._config.inactiveButtonClass);
     item.setAttribute('disabled','false');
   }
