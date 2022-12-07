@@ -42,45 +42,9 @@ function addCard(item) {
   const cardElement = card.generateCard();
 
   return cardElement;
-
-  // const placeItem = placesTemplate.cloneNode(true);
-  // const likeButton = placeItem.querySelector('.element__like');
-  // const deleteButton = placeItem.querySelector('.element__delete-button');
-
-  // const placePic = placeItem.querySelector('.element__img');
-  // placePic.src = link;
-  // placePic.alt = name;
-  // const placeTitle = placeItem.querySelector('.element__title');
-  // placeTitle.textContent = name;
-
-  // const openImg = function () {
-  //   fullImg.src = link;
-  //   fullImgCapt.textContent = name;
-  //   fullImg.alt = name;
-
-  //   openPopup(popupFullImg);
-  // }
-
-  // placePic.addEventListener('click', openImg);
-
-  // deleteButton.addEventListener('click', function () {
-  //   deleteButton.closest('.element').remove();
-  // });
-
-  // likeButton.addEventListener('click', function(e) {
-  //   e.target.classList.toggle('element__like_active');
-  // });
-  // return placeItem;
 }
 
-// initialCards.forEach((item) => {
-//   placesList.append(addCard(item.name, item.link));
-// });
-
 initialCards.forEach((item) => {
-  // const card = new Card(item.name, item.link, '.element-template_type_default');
-  // const cardElement = card.generateCard();
-
   placesList.append(addCard(item));
 });
 
