@@ -75,7 +75,6 @@ const saveCard = function(evt) {
   placeInput.value = "";
   linkInput.value = "";
   closeAddPlace();
-  turnButtonOff(buttonSavePlace, validationOptions.inactiveButtonClass);
 }
 
 const closeProfilePopup = function() {
