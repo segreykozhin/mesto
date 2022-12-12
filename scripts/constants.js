@@ -1,3 +1,13 @@
+export const validationOptions = {
+  formSelector: '.form',
+  fieldsetSelector: '.form__fieldset',
+  inactiveButtonClass:'form__button_off',
+  inputSelector:'.form__input',
+  submitButtonSelector: '.form__button',
+  inputErrorClass: 'form__input_type_error',
+  inputErrorActiveClass: 'form__input-error_active',
+}
+
 export const initialCards = [
   {
     name: 'Архыз',

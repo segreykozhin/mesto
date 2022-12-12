@@ -1,17 +1,1 @@
-.popup-new-place__title {
-  display: inline-block;
-  color: black;
-  margin: 34px 64px 54px 36px;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 29px;
-}
 
-@media screen and (max-width:768px) {
-  .popup-new-place__title {
-    margin: 25px 22px 75px 22px;
-    font-size: 18px;
-    line-height: 22px;
-  }
-}

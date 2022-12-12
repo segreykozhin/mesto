@@ -1,6 +1,6 @@
 import { Card } from "./card.js";
-import { initialCards } from "./cards.js";
-import {FormValidator, validationOptions } from "./validation.js"
+import { initialCards,validationOptions} from "./constants.js";
+import {FormValidator} from "./validation.js"
 
 const profilePopup = document.querySelector('.profile-popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -11,17 +11,12 @@ const workInput = document.querySelector('.popup__input_data_work');
 const profileTitle = document.querySelector('.profile__title');
 const profileCaption = document.querySelector('.profile__caption');
 const placesList = document.querySelector('.elements__items');
-const placesTemplate = document.querySelector('.element-template').content;
 const popupNewPlace = document.querySelector('.popup-new-place');
 const cardsButton = document.querySelector('.profile__add-button');
 const placeCloseButton = document.querySelector('.popup-new-place__close');
 const placeInput = document.querySelector('.popup-new-place__input_data_place');
 const linkInput = document.querySelector('.popup-new-place__input_data_link');
 const newPlaceForm = document.querySelector('.popup-new-place__form');
-const imgCloseButton = document.querySelector('.popup-full-img__close');
-const popupFullImg = document.querySelector('.popup-full-img');
-const fullImg = document.querySelector('.popup-full-img__img');
-const fullImgCapt = document.querySelector('.popup-full-img__caption');
 const popups = document.querySelectorAll('.popup');
 const buttonSavePlace = document.querySelector('.popup-new-place__button');
 const main = document.querySelector('.root');
@@ -31,37 +26,49 @@ const openPopup = function(popup) {
   main.addEventListener('keydown', closeByEscape);
 }
 
+const handleOpenPhoto = function () {
+  document.body.querySelector('.popup-full-img__img').src = this._link;
+  document.body.querySelector('.popup-full-img__caption').textContent = this._name;
+  document.body.querySelector('.popup-full-img__img').alt = this._name;
+  document.body.querySelector('.popup-full-img').classList.add('popup_opened');
+}
+
 const closePopup = function(popup) {
   popup.classList.remove('popup_opened');
   main.removeEventListener('keydown', closeByEscape);
 }
 
-function addCard(item) {
+function createCard(item) {
 
-  const card = new Card(item.name, item.link, '.element-template_type_default');
+  const card = new Card(item.name, item.link, '.element-template_type_default', handleOpenPhoto);
   const cardElement = card.generateCard();
 
   return cardElement;
 }
 
+const valProfileForm = new FormValidator(validationOptions, profilePopupForm);
+valProfileForm.enableValidation();
+const valCardForm = new FormValidator(validationOptions, newPlaceForm);
+valCardForm.enableValidation();
+
 initialCards.forEach((item) => {
-  placesList.append(addCard(item));
+  placesList.append(createCard(item));
 });
 
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileCaption.textContent = workInput.value;
   closePopup(profilePopup);
 }
 
-const editProfile = function() {
+const openEditingProfile = function() {
   nameInput.value = profileTitle.textContent;
   workInput.value = profileCaption.textContent;
   openPopup(profilePopup);
 }
 
-const addPlace = function() {
+const openaddPlace = function() {
   openPopup(popupNewPlace);
 }
 
@@ -71,10 +78,11 @@ const closeAddPlace = function () {
 
 const saveCard = function(evt) {
   evt.preventDefault();
-  placesList.prepend(addCard(placeInput.value, linkInput.value));
+  placesList.prepend(createCard({name:placeInput.value, link:linkInput.value}));
   placeInput.value = "";
   linkInput.value = "";
   closeAddPlace();
+  valCardForm.turnButtonOff(buttonSavePlace)
 }
 
 const closeProfilePopup = function() {
@@ -96,17 +104,13 @@ popups.forEach(function(item) {
   });
 });
 
-const valProfileForm = new FormValidator(validationOptions, profilePopupForm);
-valProfileForm.enableValidation();
-const valCardForm = new FormValidator(validationOptions, newPlaceForm);
-valCardForm.enableValidation();
-
-profilePopupForm.addEventListener('submit',handleFormSubmit);
-profileEditButton.addEventListener('click', editProfile);
+profilePopupForm.addEventListener('submit',handleProfileFormSubmit);
+profileEditButton.addEventListener('click', openEditingProfile);
 profileCloseButton.addEventListener('click', closeProfilePopup);
-cardsButton.addEventListener('click', addPlace);
+cardsButton.addEventListener('click', openaddPlace);
 placeCloseButton.addEventListener('click', closeAddPlace);
 newPlaceForm.addEventListener('submit', saveCard);
+
 
 
 

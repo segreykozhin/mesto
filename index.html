@@ -36,7 +36,7 @@
   </footer>
 
   <div class="popup profile-popup">
-    <div class="popup__container">
+    <div class="profile-popup__container popup__container">
       <button type="button" class="popup__close"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="personal_data" class="popup__form form">
@@ -56,9 +56,9 @@
   </div>
 
   <div class="popup popup-new-place">
-    <div class="popup-new-place__container">
-      <button type="button" class="popup-new-place__close"></button>
-      <h2 class="popup-new-place__title">Новое место</h2>
+    <div class="popup__container popup-new-place__container">
+      <button type="button" class="popup__close popup-new-place__close"></button>
+      <h2 class="popup__title popup-new-place__title">Новое место</h2>
       <form name="place_data" class="popup-new-place__form form">
         <fieldset class="form__fieldset">
           <label class="form__field">
@@ -69,7 +69,7 @@
             <input id="link-input" type="url" name="link" placeholder="Ссылка на картинку" class="popup-new-place__input popup-new-place__input_data_link form__input" required>
             <span class="form__input-error link-input-error"></span>
           </label>
-          <button type="submit" class="form__button popup-new-place__button">Сохранить</button>
+          <button type="submit" class="form__button popup__button popup-new-place__button">Сохранить</button>
         </fieldset>
       </form>
     </div>
