@@ -20,17 +20,20 @@ const newPlaceForm = document.querySelector('.popup-new-place__form');
 const popups = document.querySelectorAll('.popup');
 const buttonSavePlace = document.querySelector('.popup-new-place__button');
 const main = document.querySelector('.root');
+const popupFullImg = document.body.querySelector('.popup-full-img');
+const fullImg = document.body.querySelector('.popup-full-img__img');
+const fullImgCaption = document.body.querySelector('.popup-full-img__caption');
 
 const openPopup = function(popup) {
   popup.classList.add('popup_opened');
   main.addEventListener('keydown', closeByEscape);
 }
 
-const handleOpenPhoto = function () {
-  document.body.querySelector('.popup-full-img__img').src = this._link;
-  document.body.querySelector('.popup-full-img__caption').textContent = this._name;
-  document.body.querySelector('.popup-full-img__img').alt = this._name;
-  document.body.querySelector('.popup-full-img').classList.add('popup_opened');
+const handleOpenPhoto = function (link, name) {
+  fullImg.src = link;
+  fullImgCaption.textContent = name;
+  fullImg.alt = name;
+  openPopup(popupFullImg);
 }
 
 const closePopup = function(popup) {
@@ -41,9 +44,8 @@ const closePopup = function(popup) {
 function createCard(item) {
 
   const card = new Card(item.name, item.link, '.element-template_type_default', handleOpenPhoto);
-  const cardElement = card.generateCard();
 
-  return cardElement;
+  return card.generateCard();
 }
 
 const valProfileForm = new FormValidator(validationOptions, profilePopupForm);

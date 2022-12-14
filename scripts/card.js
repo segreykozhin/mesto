@@ -50,7 +50,7 @@ export class Card {
     this._elementImg = this._element.querySelector('.element__img');
     this._elementLike = this._element.querySelector('.element__like');
     this._elementImg.addEventListener('click', () => {
-      this._handleOpenPhoto();
+      this._handleOpenPhoto(this._link, this._name);
     });
     document.body.querySelector('.popup-full-img__close').addEventListener('click', () => {
       this._handleClosePopup();

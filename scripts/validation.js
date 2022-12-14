@@ -30,7 +30,6 @@
   };
 
   _setEventListeners  () {
-    this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
     this._toggleButton();
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
