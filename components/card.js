@@ -38,7 +38,6 @@ export class Card {
   }
 
   _handleLike() {
-
     this._elementLike.classList.toggle('element__like_active');
   }
 

@@ -37,16 +37,16 @@
 
   <div class="popup profile-popup">
     <div class="profile-popup__container popup__container">
-      <button type="button" class="popup__close"></button>
+      <button type="button" class="popup__close popup__close-button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="personal_data" class="popup__form form">
         <fieldset class="form__fieldset">
           <label class="form__field">
-            <input id="name-input" type="text" name="name" placeholder="Имя" class="popup__input popup__input_data_name form__input" minlength="2" maxlength="40" required>
+            <input id="name-input" type="text" name="name"  class="popup__input popup__input_data_name form__input" minlength="2" maxlength="40" required>
             <span class="form__input-error name-input-error"></span>
           </label>
           <label class="form__field">
-            <input id="work-input" type="text" name="work" placeholder="О себе" class="popup__input popup__input_data_work form__input" minlength="2" maxlength="200" required>
+            <input id="work-input" type="text" name="work"  class="popup__input popup__input_data_work form__input" minlength="2" maxlength="200" required>
             <span class="form__input-error work-input-error"></span>
           </label>
           <button type="submit" class="form__button popup__button">Сохранить</button>
@@ -57,7 +57,7 @@
 
   <div class="popup popup-new-place">
     <div class="popup__container popup-new-place__container">
-      <button type="button" class="popup__close popup-new-place__close"></button>
+      <button type="button" class="popup__close popup-new-place__close popup__close-button"></button>
       <h2 class="popup__title popup-new-place__title">Новое место</h2>
       <form name="place_data" class="popup-new-place__form form">
         <fieldset class="form__fieldset">
@@ -78,7 +78,7 @@
   <div class="popup popup-full-img">
     <div class="popup-full-img__container">
       <img src="." alt="" class="popup-full-img__img">
-      <button type="button" class="popup-full-img__close"></button>
+      <button type="button" class="popup-full-img__close popup__close-button"></button>
       <p class="popup-full-img__caption"></p>
     </div>
   </div>
@@ -95,6 +95,6 @@
   </template>
 
 
-  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./pages/index.js"></script>
 </body>
 </html>
