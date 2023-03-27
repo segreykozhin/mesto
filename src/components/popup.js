@@ -3,7 +3,6 @@ const main = document.querySelector('.root');
 export default class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
-    this._popupCloseButton = this._popup.querySelector('.popup__close-button')
   }
 
   open() {

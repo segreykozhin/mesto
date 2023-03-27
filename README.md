@@ -15,6 +15,7 @@ JavaScript:
 Классы
 Валидация форм
 Адаптив под разные устройства
+Вебпак
 
 Ссылка на gh pages : https://segreykozhin.github.io/mesto/
 

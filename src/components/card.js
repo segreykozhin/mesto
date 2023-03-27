@@ -8,7 +8,6 @@ export class Card {
 
   }
 
-
   _getTemplate() {
     const cardElement = document
     .querySelector(this._selector)
@@ -16,25 +15,17 @@ export class Card {
     .querySelector('.element')
     .cloneNode(true);
 
-
     return cardElement;
   }
 
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
-
     this._elementImg.src = this._link;
     this._elementImg.alt = this._description;
     this._element.querySelector('.element__title').textContent = this._name;
 
     return this._element;
-  }
-
-
-
-  _handleClosePopup() {
-    document.body.querySelector('.popup-full-img').classList.remove('popup_opened');
   }
 
   _handleLike() {
@@ -51,15 +42,13 @@ export class Card {
     this._elementImg.addEventListener('click', () => {
       this._handleOpenPhoto(this._link, this._name);
     });
-    document.body.querySelector('.popup-full-img__close').addEventListener('click', () => {
-      this._handleClosePopup();
-    });
+
     this._elementLike.addEventListener('click', () => {
       this._handleLike();
     });
+
     this._element.querySelector('.element__delete-button').addEventListener('click', () => {
       this._deleteElement();
     });
   }
 }
-
