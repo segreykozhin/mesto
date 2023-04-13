@@ -17,5 +17,5 @@ JavaScript:
 Адаптив под разные устройства
 Вебпак
 
-Ссылка на gh pages : https://segreykozhin.github.io/mesto/
+Ссылка на gh pages : https://github.com/segreykozhin/mesto.git
 
