@@ -31,3 +31,4 @@ export const main = document.querySelector('.root');
 export const popupFullImg = document.body.querySelector('.popup-full-img');
 export const fullImg = document.body.querySelector('.popup-full-img__img');
 export const fullImgCaption = document.body.querySelector('.popup-full-img__caption');
+export const avatarPopupForm = document.querySelector('.update-avatar-popup__form');

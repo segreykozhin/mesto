@@ -29,16 +29,14 @@ export class Card {
     this._elementImg.src = this._link;
     this._elementImg.alt = this._description;
     this._element.querySelector('.element__title').textContent = this._name;
-    this._numberOfLikes = this._element.querySelector('.element__likesum');
+    this.numberOfLikes = this._element.querySelector('.element__likesum');
     this._cart = this._element.querySelector('.element__delete-button');
 
     this._likeUpdate(this._data);
 
-
     if (this._ownerID !== this._userId) {
       this._cart.classList.add("element__delete-button_hidden");
     }
-
     return this._element;
   }
 
@@ -62,7 +60,8 @@ export class Card {
   }
 
   _likeUpdate(data) {
-    this._numberOfLikes.textContent = String(data.likes.length);
+    this._data.likes = data.likes;
+    this.numberOfLikes.textContent = String(this._data.likes.length);
   }
 
   deleteElement() {

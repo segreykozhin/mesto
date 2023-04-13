@@ -10,6 +10,7 @@ import {
   avatarEditButton,
   cardsButton,
   newPlaceForm,
+  avatarPopupForm
 } from "../utils/constants.js";
 import {FormValidator} from "../components/validation.js";
 import PopupWithImage from "../components/popupWithImage.js";
@@ -55,32 +56,38 @@ const confirmPopup = new ConfirmPopup ('.confirm-popup');
 confirmPopup.setEventListeners ();
 
 function editProfileFormSubmit () {
+  profilePopup.loading(true);
   api
     .saveUserInfo({name: nameInput.value,about: workInput.value})
     .then((res) => {
       userInfo.setUserInfo(res)
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => profilePopup.loading(false));
     profilePopup.close();
 };
 
 function updateAvatarSubmit() {
+  avatarPopup.loading(true);
   api
     .saveUserAvatar({avatar:avatarInput.value})
     .then(res => {
       userInfo.setUserInfo(res)
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => avatarPopup.loading(false));
     avatarPopup.close();
 }
 
 function addCardFormSubmit (data) {
+  addCardPopup.loading(true);
   api
     .addNewCard(data)
     .then((res) => {
       cardList.addItem(createCard(res));
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err))
+    .finally(() => addCardPopup.loading(false));
     addCardPopup.close();
 };
 
@@ -121,6 +128,8 @@ const valProfileForm = new FormValidator(validationOptions, profilePopupForm);
 valProfileForm.enableValidation();
 const valCardForm = new FormValidator(validationOptions, newPlaceForm);
 valCardForm.enableValidation();
+const valAvatarForm = new FormValidator(validationOptions,avatarPopupForm);
+valAvatarForm.enableValidation();
 
 profileEditButton.addEventListener('click', () => {
   profilePopup.open();
