@@ -50,3 +50,12 @@
 @import url(../blocks/form/__input-error/form__input-error_active.css);
 @import url(../blocks/form/__button/form__button_off.css);
 @import url(../blocks/profile-popup/__container/profile-popup__container.css);
+@import url(../blocks/element/__likesum/element__likesum.css);
+@import url(../blocks/confirm-popup/__title/confirm-popup__title.css);
+@import url(../blocks/confirm-popup/__container/confirm-popup__container.css);
+@import url(../blocks/confirm-popup/confirm-popup.css);
+@import url(../blocks/confirm-popup/__button/confirm-popup__button.css);
+@import url(../blocks/profile/__image-edit-button/profile__image-edit-button.css);
+@import url(../blocks/update-avatar-popup/__container/update-avatar-popup__container.css);
+@import url(../blocks/update-avatar-popup/update-avatar-popup.css);
+@import url(../blocks/element/__delete-button/element__delete-button_hidden/element__delete-button_hidden.css);

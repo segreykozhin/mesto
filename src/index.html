@@ -15,7 +15,10 @@
 
   <main>
       <section class="profile">
-        <img src="<%=require('./images/avatar.jpg')%>" alt="" class="profile__image">
+        <div>
+          <img src="<%=require('./images/avatar.jpg')%>" alt="" class="profile__image">
+          <div class="profile__image-edit-button"></div>
+        </div>
         <div class="profile__text">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <p class="profile__caption">Исследователь океана</p>
@@ -83,12 +86,41 @@
     </div>
   </div>
 
+  <div class="popup confirm-popup">
+    <div class="popup__container confirm-popup__container">
+      <button type="button" class="popup__close popup__close-button"></button>
+      <form class="popup__form">
+        <h2 class="popup__title confirm-popup__title">Вы уверенны?</h2>
+        <button type="submit" class="popup__button confirm-popup__button">Да</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup update-avatar-popup">
+    <div class="popup__container update-avatar-popup__container">
+      <button type="button" class="popup__close popup__close-button"></button>
+      <h2 class="popup__title ">Обновить аватар</h2>
+      <form name="place_data" class="update-avatar-popup__form form">
+        <fieldset class="form__fieldset">
+          <label class="form__field">
+            <input id="avalink-input" type="url" name="link" placeholder="Ссылка на картинку" class="update-avatar-popup__input form__input" required>
+              <span class="form__input-error avalink-input-error"></span>
+          </label>
+          <button type="submit" class="update-avatarform__button form__button popup__button">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
   <template class="element-template element-template_type_default">
     <div class="element">
       <img type="button" src="." alt="" class="element__img">
       <div class="element__caption">
         <h2 class="element__title"></h2>
-        <button type="button" class="element__like"></button>
+        <div>
+          <button type="button" class="element__like"></button>
+          <p class="element__likesum"></p>
+        </div>
         <button type="button" class="element__delete-button"></button>
       </div>
     </div>

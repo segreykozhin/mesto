@@ -8,38 +8,13 @@ export const validationOptions = {
   inputErrorActiveClass: 'form__input-error_active',
 }
 
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 export const profPopup = document.querySelector('.profile-popup');
 export const profileEditButton = document.querySelector('.profile__edit-button');
 export const profileCloseButton = document.querySelector('.popup__close');
 export const profilePopupForm = document.querySelector('.popup__form');
 export const nameInput = document.querySelector('.popup__input_data_name');
+export const avatarInput = document.querySelector('.update-avatar-popup__input');
+export const avatarEditButton = document.querySelector('.profile__image-edit-button');
 export const workInput = document.querySelector('.popup__input_data_work');
 export const profileTitle = document.querySelector('.profile__title');
 export const profileCaption = document.querySelector('.profile__caption');

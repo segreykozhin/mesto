@@ -1,0 +1,10 @@
+.element__likesum {
+  display: flex;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 22px;
+  color: black;
+  font-family: 'Inter',Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
