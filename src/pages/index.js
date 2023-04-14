@@ -1,5 +1,5 @@
 import './index.css'
-import {Card} from "../components/card.js";
+import {Card} from "../components/Card.js";
 import {
   validationOptions,
   profileEditButton,
@@ -12,13 +12,13 @@ import {
   newPlaceForm,
   avatarPopupForm
 } from "../utils/constants.js";
-import {FormValidator} from "../components/validation.js";
-import PopupWithImage from "../components/popupWithImage.js";
-import PopupWithForm from "../components/popupWithForm.js";
-import Section from "../components/section.js";
-import UserInfo from "../components/userInfo.js";
-import Api from '../components/api.js';
-import ConfirmPopup from '../components/confirmPopup.js';
+import {FormValidator} from "../components/FormValidator.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import Api from '../components/Api.js';
+import ConfirmPopup from '../components/ConfirmPopup.js';
 
 let userId = null;
 
@@ -60,11 +60,11 @@ function editProfileFormSubmit () {
   api
     .saveUserInfo({name: nameInput.value,about: workInput.value})
     .then((res) => {
-      userInfo.setUserInfo(res)
+      userInfo.setUserInfo(res);
+      profilePopup.close();
     })
     .catch(err => console.log(err))
     .finally(() => profilePopup.loading(false));
-    profilePopup.close();
 };
 
 function updateAvatarSubmit() {
@@ -72,11 +72,13 @@ function updateAvatarSubmit() {
   api
     .saveUserAvatar({avatar:avatarInput.value})
     .then(res => {
-      userInfo.setUserInfo(res)
+      userInfo.setUserInfo(res);
+      avatarPopup.close();
+      valAvatarForm.turnButtonOff()
     })
     .catch(err => console.log(err))
     .finally(() => avatarPopup.loading(false));
-    avatarPopup.close();
+
 }
 
 function addCardFormSubmit (data) {
@@ -85,10 +87,10 @@ function addCardFormSubmit (data) {
     .addNewCard(data)
     .then((res) => {
       cardList.addItem(createCard(res));
+      addCardPopup.close();
     })
     .catch(err => console.log(err))
     .finally(() => addCardPopup.loading(false));
-    addCardPopup.close();
 };
 
 function createCard(item) {
